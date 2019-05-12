@@ -4,19 +4,24 @@ import { bindActionCreators } from 'redux'
 import * as R from 'ramda'
 import { getReciters } from './actions'
 import Reciters from './components'
+import Search from '../Search'
 
 class RecitersContainer extends React.Component {
-  componentWillMount () {
+  componentWillMount() {
     // const src = 'http://server6.mp3quran.net/balilah/020.mp3'
     // const audio = new Audio(src)
     // audio.play()
     this.props.getReciters()
   }
 
-  render () {
-    const {reciters} = this.props
+  render() {
+    const { reciters } = this.props
     return (
-      <Reciters reciters={reciters} />
+      <React.Fragment>
+        <Search></Search>
+        <Reciters reciters={reciters} />
+      </React.Fragment>
+
     )
   }
 }
